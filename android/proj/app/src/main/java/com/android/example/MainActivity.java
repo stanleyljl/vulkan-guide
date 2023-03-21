@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.android.example.vulkan.tutorials.five;
+package com.android.example;
 
 import com.google.androidgamesdk.GameActivity;
 import android.os.Bundle;

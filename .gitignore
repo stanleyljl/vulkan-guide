@@ -3,3 +3,14 @@
 /third_party/nvlibs
 /third_party/nvidia-texture-tools/data
 /assets_export
+.idea
+.DS_Store
+.gradle
+build
+*.iml
+*~
+local.properties
+.externalNativeBuild
+.cxx
+.cdep
+cdep.sha256
