@@ -1,34 +1,34 @@
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <json.hpp>
-#include <fstream>
-#include <filesystem>
 
-#include <lz4.h>
 #include <chrono>
+#include <lz4.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "tiny_obj_loader.h"
 
 #include <asset_loader.h>
-#include <texture_asset.h>
-#include <mesh_asset.h>
 #include <material_asset.h>
+#include <mesh_asset.h>
+#include <texture_asset.h>
 
 #define TINYGLTF_IMPLEMENTATION
-#include <tiny_gltf.h>
 #include "prefab_asset.h"
+#include <tiny_gltf.h>
 
 #include <nvtt.h>
 
 #include <glm/glm.hpp>
-#include<glm/gtx/transform.hpp>
 #include <glm/gtx/quaternion.hpp>
+#include<glm/gtx/transform.hpp>
 
 
 #include <assimp/Importer.hpp>
-#include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <assimp/scene.h>
 namespace fs = std::filesystem;
 
 using namespace assets;
@@ -1171,23 +1171,23 @@ int main(int argc, char* argv[])
 				fs::create_directory(export_path.parent_path());
 			}
 
-			//if (p.path().extension() == ".png" || p.path().extension() == ".jpg" || p.path().extension() == ".TGA")
-			//{
-			//	std::cout << "found a texture" << std::endl;
-			//
-			//	auto newpath = p.path();
-			//
-			//
-			//	export_path.replace_extension(".tx");
-			//
-			//	convert_image(p.path(), export_path);
-			//}
-			//if (p.path().extension() == ".obj") {
-			//	std::cout << "found a mesh" << std::endl;
-			//
-			//	export_path.replace_extension(".mesh");
-			//	convert_mesh(p.path(), export_path);
-			//}
+            if (p.path().extension() == ".png" || p.path().extension() == ".jpg" || p.path().extension() == ".TGA")
+            {
+                std::cout << "found a texture" << std::endl;
+
+                auto newpath = p.path();
+
+
+                export_path.replace_extension(".tx");
+
+                convert_image(p.path(), export_path);
+            }
+            if (p.path().extension() == ".obj") {
+                std::cout << "found a mesh" << std::endl;
+
+                export_path.replace_extension(".mesh");
+                convert_mesh(p.path(), export_path);
+            }
 			if (p.path().extension() == ".gltf")
 			{
 				using namespace tinygltf;
@@ -1221,7 +1221,7 @@ int main(int argc, char* argv[])
 					extract_gltf_nodes(model, p.path(), folder, convstate);
 				}
 			}
-			if (false){//p.path().extension() == ".fbx") {
+			if (p.path().extension() == ".fbx") {
 				const aiScene* scene;
 				{
 					Assimp::Importer importer;

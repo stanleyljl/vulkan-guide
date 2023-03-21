@@ -33,6 +33,7 @@
 //============================================================================
 
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 static CGU_INT QSortFCmp(const void *Elem1, const void *Elem2) {
@@ -140,4 +141,5 @@ static CGU_Vec3f saturate(CGU_Vec3f value)
 //============================================================================
 
 #endif // Header Guard
+
 

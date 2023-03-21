@@ -4,18 +4,18 @@
 #include <SDL.h>
 #include <SDL_vulkan.h>
 
-#include <vk_types.h>
-#include <vk_initializers.h>
 #include <vk_descriptors.h>
+#include <vk_initializers.h>
+#include <vk_types.h>
 
 #include "VkBootstrap.h"
 
-#include <iostream>
-#include <fstream>
-#include <chrono>
-#include <sstream>
-#include "vk_textures.h"
 #include "vk_shaders.h"
+#include "vk_textures.h"
+#include <chrono>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 #define VMA_IMPLEMENTATION
 #include "vk_mem_alloc.h"
@@ -23,19 +23,19 @@
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_vulkan.h"
-#include "prefab_asset.h"
 #include "material_asset.h"
+#include "prefab_asset.h"
 
 #include "Tracy.hpp"
 #include "TracyVulkan.hpp"
 #include "vk_profiler.h"
 
+#include "fmt/color.h"
 #include "fmt/core.h"
 #include "fmt/os.h"
-#include "fmt/color.h"
 
-#include "logger.h"
 #include "cvars.h"
+#include "logger.h"
 
 
 
@@ -276,7 +276,9 @@ void VulkanEngine::draw()
 			ready_mesh_draw(cmd);
 
 			ready_cull_data(_renderScene._forwardPass, cmd);
+#ifdef STANLEY_TODO
 			ready_cull_data(_renderScene._transparentForwardPass, cmd);
+#endif
 			ready_cull_data(_renderScene._shadowPass, cmd);
 
 			vkCmdPipelineBarrier(cmd, VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, 0, 0, nullptr, cullReadyBarriers.size(), cullReadyBarriers.data(), 0, nullptr);
@@ -1604,7 +1606,7 @@ void VulkanEngine::init_scene()
 			glm::mat4 translation = glm::translate(glm::mat4{ 1.0 }, glm::vec3(x * 5, 10, y * 5));
 			glm::mat4 scale = glm::scale(glm::mat4{ 1.0 }, glm::vec3(10));
 	
-			load_prefab(asset_path("FlightHelmet/FlightHelmet.pfb").c_str(),(translation * scale));
+			//load_prefab(asset_path("FlightHelmet/FlightHelmet.pfb").c_str(),(translation * scale));
 		}
 	}
 
@@ -1612,8 +1614,8 @@ void VulkanEngine::init_scene()
 	
 	glm::mat4 unrealFixRotation = glm::rotate(glm::radians(-90.f), glm::vec3{ 1,0,0 });
 	
-	load_prefab(asset_path("Sponza2.pfb").c_str(), sponzaMatrix);
-	load_prefab(asset_path("scifi/TopDownScifi.pfb").c_str(),  glm::translate(glm::vec3{0,20,0}));
+	load_prefab(asset_path("Sponza/Sponza.pfb").c_str(), sponzaMatrix);
+	//load_prefab(asset_path("scifi/TopDownScifi.pfb").c_str(),  glm::translate(glm::vec3{0,20,0}));
 	int dimcities = 2;
 	for (int x = -dimcities; x <= dimcities; x++) {
 		for (int y = -dimcities; y <= dimcities; y++) {
@@ -1625,7 +1627,7 @@ void VulkanEngine::init_scene()
 			glm::mat4 cityMatrix = translation;// * glm::scale(glm::mat4{ 1.0f }, glm::vec3(.01f));
 			//load_prefab(asset_path("scifi/TopDownScifi.pfb").c_str(), unrealFixRotation * glm::scale(glm::mat4{ 1.0 }, glm::vec3(.01)));
 			//load_prefab(asset_path("PolyCity/PolyCity.pfb").c_str(), cityMatrix);
-			load_prefab(asset_path("CITY/polycity.pfb").c_str(), cityMatrix);
+			//load_prefab(asset_path("CITY/polycity.pfb").c_str(), cityMatrix);
 		//	load_prefab(asset_path("scifi/TopDownScifi.pfb").c_str(), cityMatrix);
 		}
 	}
@@ -2154,3 +2156,4 @@ glm::mat4 DirectionalLight::get_view()
 	glm::mat4 view = glm::lookAt(camPos, camPos + camFwd, glm::vec3(1, 0, 0));
 	return view;
 }
+
