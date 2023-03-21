@@ -93,7 +93,7 @@ void PlayerCamera::update_camera(float deltaSeconds)
 
 	velocity = inputAxis.x * forward + inputAxis.y * right + inputAxis.z * up;
 
-	velocity *= 10 * deltaSeconds;
+	velocity *= 100 * deltaSeconds;
 
 	position += velocity;
 }
