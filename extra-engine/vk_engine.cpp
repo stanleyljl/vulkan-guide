@@ -1595,18 +1595,14 @@ void VulkanEngine::init_scene()
 
 	}
 
-
-	
-
-
-	int dimHelmets =1;
+	int dimHelmets = 100;
 	for (int x = -dimHelmets; x <= dimHelmets; x++) {
 		for (int y = -dimHelmets; y <= dimHelmets; y++) {
 	
-			glm::mat4 translation = glm::translate(glm::mat4{ 1.0 }, glm::vec3(x * 5, 10, y * 5));
-			glm::mat4 scale = glm::scale(glm::mat4{ 1.0 }, glm::vec3(10));
+			glm::mat4 translation = glm::translate(glm::mat4{ 1.0 }, glm::vec3(x * 50, 0, y * 50));
+			glm::mat4 scale = glm::scale(glm::mat4{ 1.0 }, glm::vec3(50));
 	
-			//load_prefab(asset_path("FlightHelmet/FlightHelmet.pfb").c_str(),(translation * scale));
+			load_prefab(asset_path("FlightHelmet/FlightHelmet.pfb").c_str(),(translation * scale));
 		}
 	}
 
