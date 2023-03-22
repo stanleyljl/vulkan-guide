@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\FileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Library.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\StrLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\TextWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\nvcore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\DefsGnucDarwin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\DefsGnucLinux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\DefsGnucWin32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\DefsVcWin32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\FileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\ForEach.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Library.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Ptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\RefCounted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\StrLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\StdStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\TextWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{06265651-7B93-3DF2-98E5-59F12AB0AA62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C715383D-FC47-3FBB-BF61-231713BA8556}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

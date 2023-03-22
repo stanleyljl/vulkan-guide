@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{59424510-4B29-3468-89A7-94FCC8D4D9C9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>bc7</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\opensource\vulkan-guide\libs\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">bc7.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">bc7</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\opensource\vulkan-guide\libs\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">bc7.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">bc7</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\opensource\vulkan-guide\libs\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">bc7.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">bc7</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\opensource\vulkan-guide\libs\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">bc7.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">bc7</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE2__;__SSE__;__MMX__;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src;F:\opensource\vulkan-guide\third_party\nvlibs\src;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\stb;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/bc7/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-file F:/opensource/vulkan-guide/third_party/nvlibs/src/bc7/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/bc7/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-file F:/opensource/vulkan-guide/third_party/nvlibs/src/bc7/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/bc7/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-file F:/opensource/vulkan-guide/third_party/nvlibs/src/bc7/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/bc7/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-file F:/opensource/vulkan-guide/third_party/nvlibs/src/bc7/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl.cpp" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl.h" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode0.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode1.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode2.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode3.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode4.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode5.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode6.cpp" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_mode7.cpp" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\bits.h" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\endpts.h" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\shapes_three.h" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\shapes_two.h" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\tile.h" />
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_utils.cpp" />
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\avpcl_utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="F:\opensource\vulkan-guide\third_party\nvlibs\ZERO_CHECK.vcxproj">
+      <Project>{B4A6B445-9BA1-3003-9AF2-E23413DDFBAB}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="F:\opensource\vulkan-guide\third_party\nvlibs\src\nvcore\nvcore.vcxproj">
+      <Project>{5A096C5A-E8A7-3B0E-AAC9-6E46BBBBCA3C}</Project>
+      <Name>nvcore</Name>
+    </ProjectReference>
+    <ProjectReference Include="F:\opensource\vulkan-guide\third_party\nvlibs\src\nvmath\nvmath.vcxproj">
+      <Project>{1A45862B-F7B8-3924-A9B0-B61ADEF85C50}</Project>
+      <Name>nvmath</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

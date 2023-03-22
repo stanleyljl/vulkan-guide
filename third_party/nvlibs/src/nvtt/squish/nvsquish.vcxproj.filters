@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\fastclusterfit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\weightedclusterfit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourblock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourfit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\maths.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\fastclusterfit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\weightedclusterfit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourblock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourfit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\colourset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\maths.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\simd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\simd_sse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\simd_ve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{06265651-7B93-3DF2-98E5-59F12AB0AA62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C715383D-FC47-3FBB-BF61-231713BA8556}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

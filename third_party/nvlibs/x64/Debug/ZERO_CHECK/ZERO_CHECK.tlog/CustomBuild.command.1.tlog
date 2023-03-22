@@ -1,0 +1,10 @@
+^F:\OPENSOURCE\VULKAN-GUIDE\THIRD_PARTY\NVLIBS\CMAKEFILES\A63CA52CC52A656AC43584CB829C685E\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/opensource/vulkan-guide/third_party/nvlibs/NV.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

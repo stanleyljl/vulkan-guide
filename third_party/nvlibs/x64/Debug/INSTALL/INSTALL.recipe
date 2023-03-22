@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\cubemaptest.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\filtertest.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\imperativeapi.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nv-gnome-thumbnailer.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvassemble.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvcompress.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvddsinfo.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvdecompress.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\nvhdrtest.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvimgdiff.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\nvtestsuite.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\Debug\nvzoom.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\Debug\process_alpha_map.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\x64\Debug\ALL_BUILD</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>F:\opensource\vulkan-guide\third_party\nvlibs\x64\Debug\INSTALL</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

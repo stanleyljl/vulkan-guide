@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\Etc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_ETC1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_R11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RG11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGB8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGB8A1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGBA8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcDifferentialTrys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcIndividualTrys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcSortedBlockList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\Etc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcColorFloatRGBA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\Etc\EtcMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4EncodingBits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_ETC1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_R11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RG11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGB8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGB8A1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcBlock4x4Encoding_RGBA8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcDifferentialTrys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcErrorMetric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcIndividualTrys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\EtcCodec\EtcSortedBlockList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{06265651-7B93-3DF2-98E5-59F12AB0AA62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C715383D-FC47-3FBB-BF61-231713BA8556}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

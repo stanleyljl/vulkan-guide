@@ -1,0 +1,13 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-3.24/Modules/CheckCSourceCompiles.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CheckIncludeFile.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CheckIncludeFiles.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CheckLibraryExists.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/FindCUDA.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/FindCUDA/select_compute_arch.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/FindPackageMessage.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/FindThreads.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Internal/CheckSourceCompiles.cmake
+F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/CMakeLists.txt
+F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/src/nvconfig.h.in

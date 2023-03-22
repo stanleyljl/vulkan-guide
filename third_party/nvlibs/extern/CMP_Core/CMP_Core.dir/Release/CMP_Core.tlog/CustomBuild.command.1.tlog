@@ -1,0 +1,10 @@
+^F:\OPENSOURCE\VULKAN-GUIDE\THIRD_PARTY\NVIDIA-TEXTURE-TOOLS\EXTERN\CMP_CORE\CMAKELISTS.TXT
+setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-file F:/opensource/vulkan-guide/third_party/nvlibs/extern/CMP_Core/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

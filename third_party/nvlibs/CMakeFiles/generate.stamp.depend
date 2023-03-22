@@ -1,0 +1,29 @@
+# CMake generation dependency list for this directory.
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeCInformation.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeCXXInformation.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeGenericSystem.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeRCInformation.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CPack.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/CPackComponent.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Compiler/MSVC-C.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Compiler/MSVC-CXX.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Compiler/MSVC.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/InstallRequiredSystemLibraries.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Platform/Windows-MSVC-C.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Platform/Windows-MSVC.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Platform/Windows.cmake
+D:/Program Files/CMake/share/cmake-3.24/Modules/Platform/WindowsPaths.cmake
+D:/Program Files/CMake/share/cmake-3.24/Templates/CPackConfig.cmake.in
+F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/CMakeLists.txt
+F:/opensource/vulkan-guide/third_party/nvidia-texture-tools/cmake/OptimalOptions.cmake
+F:/opensource/vulkan-guide/third_party/nvlibs/CMakeFiles/3.24.1/CMakeCCompiler.cmake
+F:/opensource/vulkan-guide/third_party/nvlibs/CMakeFiles/3.24.1/CMakeCXXCompiler.cmake
+F:/opensource/vulkan-guide/third_party/nvlibs/CMakeFiles/3.24.1/CMakeRCCompiler.cmake
+F:/opensource/vulkan-guide/third_party/nvlibs/CMakeFiles/3.24.1/CMakeSystem.cmake

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B4A6B445-9BA1-3003-9AF2-E23413DDFBAB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\a63ca52cc52a656ac43584cb829c685e\generate.stamp.rule">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/opensource/vulkan-guide/third_party/nvlibs/NV.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPack.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPackComponent.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA\select_compute_arch.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenMP.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindThreads.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\InstallRequiredSystemLibraries.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.24\Templates\CPackConfig.cmake.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\cmake\OptimalOptions.cmake;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMP_Core\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\libsquish-1.15\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\rg_etc1_v104\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc6h\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvconfig.h.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvimage\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvmath\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvthread\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tests\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\poshlib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\EtcLib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\rg_etc1_v104\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\libsquish-1.15\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMP_Core\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvcore\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvmath\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvimage\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvthread\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc6h\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\squish\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/opensource/vulkan-guide/third_party/nvlibs/NV.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPack.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPackComponent.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA\select_compute_arch.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenMP.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindThreads.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\InstallRequiredSystemLibraries.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.24\Templates\CPackConfig.cmake.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\cmake\OptimalOptions.cmake;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMP_Core\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\libsquish-1.15\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\rg_etc1_v104\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc6h\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvconfig.h.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvimage\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvmath\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvthread\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tests\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\poshlib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\EtcLib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\rg_etc1_v104\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\libsquish-1.15\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMP_Core\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvcore\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvmath\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvimage\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvthread\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc6h\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\squish\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/opensource/vulkan-guide/third_party/nvlibs/NV.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPack.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPackComponent.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA\select_compute_arch.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenMP.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindThreads.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\InstallRequiredSystemLibraries.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.24\Templates\CPackConfig.cmake.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\cmake\OptimalOptions.cmake;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMP_Core\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\libsquish-1.15\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\rg_etc1_v104\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc6h\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvconfig.h.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvimage\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvmath\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvthread\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tests\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\poshlib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\EtcLib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\rg_etc1_v104\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\libsquish-1.15\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMP_Core\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvcore\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvmath\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvimage\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvthread\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc6h\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\squish\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SF:/opensource/vulkan-guide/third_party/nvidia-texture-tools -BF:/opensource/vulkan-guide/third_party/nvlibs --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file F:/opensource/vulkan-guide/third_party/nvlibs/NV.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPack.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CPackComponent.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\CheckLibraryExists.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindCUDA\select_compute_arch.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindOpenMP.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\FindThreads.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\InstallRequiredSystemLibraries.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Internal\CheckSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;D:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;D:\Program Files\CMake\share\cmake-3.24\Templates\CPackConfig.cmake.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\cmake\OptimalOptions.cmake;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMP_Core\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\EtcLib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\libsquish-1.15\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\poshlib\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\extern\rg_etc1_v104\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc6h\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\bc7\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvconfig.h.in;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvcore\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvimage\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvmath\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvthread\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\squish\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tests\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvidia-texture-tools\src\nvtt\tools\CMakeLists.txt;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeCXXCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeRCCompiler.cmake;F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\3.24.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\opensource\vulkan-guide\third_party\nvlibs\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\poshlib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\EtcLib\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\rg_etc1_v104\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\libsquish-1.15\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\extern\CMP_Core\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvcore\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvmath\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvimage\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvthread\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc6h\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\bc7\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\squish\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tools\CMakeFiles\generate.stamp;F:\opensource\vulkan-guide\third_party\nvlibs\src\nvtt\tests\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
