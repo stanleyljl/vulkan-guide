@@ -16,6 +16,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include<algorithm>
 
 #define VMA_IMPLEMENTATION
 #include "vk_mem_alloc.h"
@@ -1967,7 +1968,9 @@ std::string VulkanEngine::asset_path(std::string_view path)
 #ifdef _WIN32
 	return "../../assets_export/" + std::string(path);
 #else
-	return "assets_export/" + std::string(path);
+	std::string p(path);
+	std::replace(p.begin(), p.end(), '\\', '/');
+	return "assets_export/" + p;
 #endif
 }
 
@@ -1976,7 +1979,9 @@ std::string VulkanEngine::shader_path(std::string_view path)
 #ifdef _WIN32
 	return "../../shaders/" + std::string(path);
 #else
-	return "shaders/" + std::string(path);
+	std::string p(path);
+	std::replace(p.begin(), p.end(), '\\', '/');
+	return "shaders/" + p;
 #endif
 }
 

@@ -44,7 +44,7 @@ bool vkutil::load_shader_module(VkDevice device,const char* filePath, ShaderModu
 	size_t fileSize = (size_t)ops->size(ops);
 	std::vector<uint32_t> buffer(fileSize / sizeof(uint32_t));
 	
-	ops->read(ops, (char*)buffer.data(), fileSize, fileSize);
+	ops->read(ops, (char*)buffer.data(), fileSize, 1);
 	ops->close(ops);
 #endif
 

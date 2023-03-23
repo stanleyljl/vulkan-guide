@@ -72,21 +72,21 @@ bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
 	SDL_RWops* infile = SDL_RWFromFile(path, "rb");
 	if (!infile) return false;
 
-	infile->read(infile, outputFile.type, 4, 4);
-    infile->read(infile, (char*)&outputFile.version, sizeof(uint32_t), sizeof(uint32_t));
+	infile->read(infile, outputFile.type, 4, 1);
+    infile->read(infile, (char*)&outputFile.version, sizeof(uint32_t), 1);
 
     uint32_t jsonlen = 0;
-    infile->read(infile, (char*)&jsonlen, sizeof(uint32_t), sizeof(uint32_t));
+    infile->read(infile, (char*)&jsonlen, sizeof(uint32_t), 1);
 
     uint32_t bloblen = 0;
-    infile->read(infile, (char*)&bloblen, sizeof(uint32_t), sizeof(uint32_t));
+    infile->read(infile, (char*)&bloblen, sizeof(uint32_t), 1);
 
     outputFile.json.resize(jsonlen);
 
-    infile->read(infile, &outputFile.json[0], jsonlen, jsonlen);
+    infile->read(infile, &outputFile.json[0], jsonlen, 1);
 
     outputFile.binaryBlob.resize(bloblen);
-    infile->read(infile, outputFile.binaryBlob.data(), bloblen, bloblen);
+    infile->read(infile, outputFile.binaryBlob.data(), bloblen, 1);
 
     return true;
 }
