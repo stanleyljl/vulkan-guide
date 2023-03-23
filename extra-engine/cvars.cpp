@@ -1,14 +1,14 @@
 ﻿#include "cvars.h"
 
 
-#include <unordered_map>
-
-#include <array>
-#include <algorithm>
 #include "imgui.h"
-#include "imgui_stdlib.h"
 #include "imgui_internal.h"
-#include <shared_mutex>
+#include "imgui_stdlib.h"
+#include <algorithm>
+#include <array>
+#include <mutex>
+#include <unordered_map>
+#include <vector>
 
 enum class CVarType : char
 {
@@ -190,7 +190,7 @@ public:
 
 private:
 
-	std::shared_mutex mutex_;
+	std::mutex mutex_;
 
 	CVarParameter* InitCVar(const char* name, const char* description);
 
@@ -218,13 +218,13 @@ const char* CVarSystemImpl::GetStringCVar(StringUtils::StringHash hash)
 CVarSystem* CVarSystem::Get()
 {
 	static CVarSystemImpl cvarSys{};
-	return &cvarSys;
+	return (CVarSystem*)(&cvarSys);
 }
 
 
 CVarParameter* CVarSystemImpl::GetCVar(StringUtils::StringHash hash)
 {
-	std::shared_lock lock(mutex_);
+	std::unique_lock<std::mutex> lock(mutex_);
 	auto it = savedCVars.find(hash);
 
 	if (it != savedCVars.end())
@@ -253,7 +253,7 @@ void CVarSystemImpl::SetStringCVar(StringUtils::StringHash hash, const char* val
 
 CVarParameter* CVarSystemImpl::CreateFloatCVar(const char* name, const char* description, double defaultValue, double currentValue)
 {
-	std::unique_lock lock(mutex_);
+	std::unique_lock<std::mutex> lock(mutex_);
 	CVarParameter* param = InitCVar(name, description);
 	if (!param) return nullptr;
 
@@ -268,7 +268,7 @@ CVarParameter* CVarSystemImpl::CreateFloatCVar(const char* name, const char* des
 
 CVarParameter* CVarSystemImpl::CreateIntCVar(const char* name, const char* description, int32_t defaultValue, int32_t currentValue)
 {
-	std::unique_lock lock(mutex_);
+	std::unique_lock<std::mutex> lock(mutex_);
 	CVarParameter* param = InitCVar(name, description);
 	if (!param) return nullptr;
 
@@ -283,7 +283,7 @@ CVarParameter* CVarSystemImpl::CreateIntCVar(const char* name, const char* descr
 
 CVarParameter* CVarSystemImpl::CreateStringCVar(const char* name, const char* description, const char* defaultValue, const char* currentValue)
 {
-	std::unique_lock lock(mutex_);
+	std::unique_lock<std::mutex> lock(mutex_);
 	CVarParameter* param = InitCVar(name, description);
 	if (!param) return nullptr;
 
@@ -530,7 +530,7 @@ void Label(const char* label, float textWidth)
 
 	ImVec2 startPos = ImGui::GetCursorScreenPos();
 
-	ImGui::Text(label);
+	ImGui::Text("%s", label);
 
 	ImVec2 finalPos = { startPos.x + fullWidth, startPos.y };
 
@@ -609,7 +609,7 @@ void CVarSystemImpl::EditParameter(CVarParameter* p, float textWidth)
 		{
 			std::string displayFormat = p->name + "= %s";
 			ImGui::PushID(p->name.c_str());
-			ImGui::Text(displayFormat.c_str(), GetCVarArray<std::string>()->GetCurrent(p->arrayIndex));
+			ImGui::Text(displayFormat.c_str(), GetCVarArray<std::string>()->GetCurrent(p->arrayIndex).c_str());
 
 			ImGui::PopID();
 		}
@@ -628,6 +628,6 @@ void CVarSystemImpl::EditParameter(CVarParameter* p, float textWidth)
 
 	if (ImGui::IsItemHovered())
 	{
-		ImGui::SetTooltip(p->description.c_str());
+		ImGui::SetTooltip("%s", p->description.c_str());
 	}
 }

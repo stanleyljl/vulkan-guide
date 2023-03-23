@@ -260,7 +260,7 @@ vkutil::Material* vkutil::MaterialSystem::build_material(const std::string& mate
 
 
 	
-		auto& db = vkutil::DescriptorBuilder::begin(engine->_descriptorLayoutCache, engine->_descriptorAllocator);
+		auto db = vkutil::DescriptorBuilder::begin(engine->_descriptorLayoutCache, engine->_descriptorAllocator);
 
 		for (int i = 0; i < info.textures.size(); i++)
 		{

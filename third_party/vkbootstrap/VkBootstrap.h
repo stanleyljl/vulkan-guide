@@ -4,7 +4,11 @@
 
 #include <vector>
 
+#if _WIN32
 #include <vulkan/vulkan.h>
+#else
+#include <vulkan_wrapper.h>
+#endif
 
 namespace vkb {
 

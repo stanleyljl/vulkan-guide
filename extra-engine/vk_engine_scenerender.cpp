@@ -164,7 +164,8 @@ void VulkanEngine::ready_mesh_draw(VkCommandBuffer cmd)
 		//if 80% of the objects are dirty, then just reupload the whole thing
 		if (_renderScene.dirtyObjects.size() >= _renderScene.renderables.size() * 0.8)
 		{
-			AllocatedBuffer<GPUObjectData> newBuffer = create_buffer(copySize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			auto buff = create_buffer(copySize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			AllocatedBuffer<GPUObjectData> newBuffer = buff;
 
 			GPUObjectData* objectSSBO = map_buffer(newBuffer);
 			_renderScene.fill_objectData(objectSSBO);
@@ -194,8 +195,10 @@ void VulkanEngine::ready_mesh_draw(VkCommandBuffer cmd)
 			uint64_t intsize = sizeof(uint32_t);
 			uint64_t wordsize = sizeof(GPUObjectData) / sizeof(uint32_t);
 			uint64_t uploadSize = _renderScene.dirtyObjects.size() * wordsize * intsize;
-			AllocatedBuffer<GPUObjectData> newBuffer = create_buffer(buffersize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
-			AllocatedBuffer<uint32_t> targetBuffer = create_buffer(uploadSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			auto newBuf = create_buffer(buffersize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			AllocatedBuffer<GPUObjectData> newBuffer = newBuf;
+			auto targetBuf = create_buffer(uploadSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			AllocatedBuffer<uint32_t> targetBuffer = targetBuf;
 
 			get_current_frame()._frameDeletionQueue.push_function([=]() {
 
@@ -300,7 +303,8 @@ void VulkanEngine::ready_mesh_draw(VkCommandBuffer cmd)
 		{
 			ZoneScopedNC("Refresh Indirect Buffer", tracy::Color::Red);
 
-			AllocatedBuffer<GPUIndirectObject> newBuffer = create_buffer(sizeof(GPUIndirectObject) * pass.batches.size(), VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			auto newBuf = create_buffer(sizeof(GPUIndirectObject) * pass.batches.size(), VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT | VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			AllocatedBuffer<GPUIndirectObject> newBuffer = newBuf;
 
 			GPUIndirectObject* indirect = map_buffer(newBuffer);
 
@@ -338,7 +342,8 @@ void VulkanEngine::ready_mesh_draw(VkCommandBuffer cmd)
 		{
 			ZoneScopedNC("Refresh Instancing Buffer", tracy::Color::Red);
 
-			AllocatedBuffer<GPUInstance> newBuffer = create_buffer(sizeof(GPUInstance) * pass.flat_batches.size(), VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			auto newBuf = create_buffer(sizeof(GPUInstance) * pass.flat_batches.size(), VK_BUFFER_USAGE_TRANSFER_SRC_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
+			AllocatedBuffer<GPUInstance> newBuffer = newBuf;
 
 			GPUInstance* instanceData = map_buffer(newBuffer);
 			async_calls.push_back(std::async(std::launch::async, [=] {

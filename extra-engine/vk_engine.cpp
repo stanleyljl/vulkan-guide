@@ -749,13 +749,16 @@ void VulkanEngine::process_input_event(SDL_Event* ev)
 
 void VulkanEngine::init_vulkan()
 {
-	
+#ifndef _WIN32
+	InitVulkan();
+#endif
 	vkb::InstanceBuilder builder;
 	//make the vulkan instance, with basic debug features
 	auto inst_ret = builder.set_app_name("Example Vulkan Application")
-
+#ifdef _WIN32
 		.request_validation_layers(bUseValidationLayers)
 		.use_default_debug_messenger()
+#endif
 		.build();
 
 
@@ -1961,14 +1964,20 @@ bool VulkanEngine::load_prefab(const char* path, glm::mat4 root)
 
 std::string VulkanEngine::asset_path(std::string_view path)
 {
+#ifdef _WIN32
 	return "../../assets_export/" + std::string(path);
+#else
+	return "assets_export/" + std::string(path);
+#endif
 }
-
-
 
 std::string VulkanEngine::shader_path(std::string_view path)
 {
+#ifdef _WIN32
 	return "../../shaders/" + std::string(path);
+#else
+	return "shaders/" + std::string(path);
+#endif
 }
 
 void VulkanEngine::refresh_renderbounds(MeshObject* object)
@@ -2152,4 +2161,5 @@ glm::mat4 DirectionalLight::get_view()
 	glm::mat4 view = glm::lookAt(camPos, camPos + camFwd, glm::vec3(1, 0, 0));
 	return view;
 }
+
 

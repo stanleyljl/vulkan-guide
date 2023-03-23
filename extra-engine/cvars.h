@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include <string_utils.h>
+#include "string_utils.h"
 
 class CVarParameter;
 
@@ -83,3 +83,4 @@ struct AutoCVar_String : AutoCVar<std::string>
 	const char* Get();
 	void Set(std::string&& val);
 };
+

@@ -87,8 +87,9 @@ namespace vkutil {
 				return data[1];
 			case MeshpassType::DirectionalShadow:
 				return data[2];
+			default:
+				assert(false);
 			}
-			assert(false);
 			 return data[0];
 		};
 

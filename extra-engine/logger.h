@@ -1,10 +1,11 @@
 ﻿#pragma once
-#include <string_view>
+#include "fmt/color.h"
 #include "fmt/core.h"
 #include "fmt/os.h"
-#include "fmt/color.h"
+#include <SDL_log.h>
 #include <chrono>
 #include <fmt/chrono.h>
+#include <string_view>
 
 #define LOG_FATAL(message,...) LogHandler::Get().log(LogType::Fatal,message, ##__VA_ARGS__);
 #define LOG_ERROR(message,...) LogHandler::Get().log(LogType::Error,message, ##__VA_ARGS__);

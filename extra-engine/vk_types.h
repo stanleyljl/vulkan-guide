@@ -3,7 +3,11 @@
 
 #pragma once
 
+#if _WIN32
 #include <vulkan/vulkan.h>
+#else
+#include <vulkan_wrapper.h>
+#endif
 #include <vk_mem_alloc.h>
 
 struct AllocatedBufferUntyped {
@@ -52,4 +56,5 @@ enum class MeshpassType : uint8_t {
 	Transparency = 2,
 	DirectionalShadow = 3
 };
+
 

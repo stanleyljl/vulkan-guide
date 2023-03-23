@@ -3,7 +3,7 @@
 #include "lz4.h"
 
 
-assets::VertexFormat parse_format(const char* f) {
+assets::VertexFormat parse_vertex_format(const char* f) {
 
 	if (strcmp(f, "PNCV_F32") == 0)
 	{
@@ -49,7 +49,7 @@ assets::MeshInfo assets::read_mesh_info(AssetFile* file)
 	info.bounds.extents[2] = boundsData[6];
 
 	std::string vertexFormat = metadata["vertex_format"];
-	info.vertexFormat = parse_format(vertexFormat.c_str());
+	info.vertexFormat = parse_vertex_format(vertexFormat.c_str());
     return info;
 }
 

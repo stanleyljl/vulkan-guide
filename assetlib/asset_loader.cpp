@@ -1,6 +1,7 @@
-
+#ifndef _WIN32
+#include <SDL_rwops.h>
+#endif
 #include <asset_loader.h>
-
 #include <fstream>
 #include <iostream>
 using namespace assets;
@@ -35,6 +36,7 @@ bool assets::save_binaryfile(const  char* path, const AssetFile& file)
 	return true;
 }
 
+#ifdef _WIN32
 bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
 {
 	std::ifstream infile;
@@ -57,13 +59,38 @@ bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
 
 	outputFile.json.resize(jsonlen);
 
-	infile.read(outputFile.json.data(), jsonlen);
+	infile.read(&outputFile.json[0], jsonlen);
 
 	outputFile.binaryBlob.resize(bloblen);
 	infile.read(outputFile.binaryBlob.data(), bloblen);
 
 	return true;
 }
+#else
+bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
+{
+	SDL_RWops* infile = SDL_RWFromFile(path, "rb");
+	if (!infile) return false;
+
+	infile->read(infile, outputFile.type, 4, 4);
+    infile->read(infile, (char*)&outputFile.version, sizeof(uint32_t), sizeof(uint32_t));
+
+    uint32_t jsonlen = 0;
+    infile->read(infile, (char*)&jsonlen, sizeof(uint32_t), sizeof(uint32_t));
+
+    uint32_t bloblen = 0;
+    infile->read(infile, (char*)&bloblen, sizeof(uint32_t), sizeof(uint32_t));
+
+    outputFile.json.resize(jsonlen);
+
+    infile->read(infile, &outputFile.json[0], jsonlen, jsonlen);
+
+    outputFile.binaryBlob.resize(bloblen);
+    infile->read(infile, outputFile.binaryBlob.data(), bloblen, bloblen);
+
+    return true;
+}
+#endif
 
 assets::CompressionMode assets::parse_compression(const char* f)
 {

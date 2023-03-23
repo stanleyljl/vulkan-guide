@@ -1,17 +1,19 @@
-﻿#include <vk_shaders.h>
-#include <vk_initializers.h>
+﻿#include <algorithm>
 #include <fstream>
 #include <vector>
-#include <algorithm>
+#include <vk_initializers.h>
+#include <vk_shaders.h>
 
-#include <spirv_reflect.h>
 #include <assert.h>
+#include <spirv_reflect.h>
 
-#include <sstream>
+#include <SDL.h>
 #include <iostream>
+#include <sstream>
+
 bool vkutil::load_shader_module(VkDevice device,const char* filePath, ShaderModule* outShaderModule)
 {
-
+#ifdef _WIN32
 	//open the file. With cursor at the end
 	std::ifstream file(filePath, std::ios::ate | std::ios::binary);
 
@@ -34,6 +36,17 @@ bool vkutil::load_shader_module(VkDevice device,const char* filePath, ShaderModu
 
 	//now that the file is loaded into the buffer, we can close it
 	file.close();
+#else
+	SDL_RWops* ops = SDL_RWFromFile(filePath, "rb");
+	if (!ops) {
+		return false;
+	}
+	size_t fileSize = (size_t)ops->size(ops);
+	std::vector<uint32_t> buffer(fileSize / sizeof(uint32_t));
+	
+	ops->read(ops, (char*)buffer.data(), fileSize, fileSize);
+	ops->close(ops);
+#endif
 
 	//create a new shader module, using the buffer we loaded
 	VkShaderModuleCreateInfo createInfo = {};
@@ -424,3 +437,5 @@ ShaderModule* ShaderCache::get_shader(const std::string& path)
 	}
 	return &module_cache[path];
 }
+
+
