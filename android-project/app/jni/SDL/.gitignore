@@ -24,7 +24,6 @@ buildbot
 *.o
 *.obj
 *.res
-*.lib
 *.a
 *.la
 *.dSYM
