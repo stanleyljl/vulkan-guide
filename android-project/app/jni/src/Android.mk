@@ -60,6 +60,6 @@ LOCAL_SRC_FILES += ../../../../third_party/vkbootstrap/VkBootstrap.cpp
 
 LOCAL_SHARED_LIBRARIES := SDL2
 
-LOCAL_LDLIBS := -lGLESv1_CM -lGLESv2 -lOpenSLES -llog -landroid
+LOCAL_LDLIBS := -llog -landroid
 
 include $(BUILD_SHARED_LIBRARY)

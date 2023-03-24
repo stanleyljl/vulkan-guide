@@ -12,11 +12,11 @@
 
 #include "vk_shaders.h"
 #include "vk_textures.h"
+#include<algorithm>
 #include <chrono>
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include<algorithm>
 
 #define VMA_IMPLEMENTATION
 #include "vk_mem_alloc.h"
@@ -131,7 +131,9 @@ void VulkanEngine::init()
 
 	init_scene();
 
+#ifdef ENABLE_IMGUI
 	init_imgui();
+#endif
 	
 	_renderScene.build_batches();
 
@@ -180,8 +182,9 @@ void VulkanEngine::draw()
 {
 	ZoneScopedN("Engine Draw");
 
+#ifdef ENABLE_IMGUI
 	ImGui::Render();
-
+#endif
 	{
 		ZoneScopedN("Fence Wait");
 		//wait until the gpu has finished rendering the last frame. Timeout of 1 second
@@ -380,7 +383,10 @@ void VulkanEngine::draw()
 
 	{
 		ZoneScopedN("Queue Present");
-		VK_CHECK(vkQueuePresentKHR(_graphicsQueue, &presentInfo));
+		auto ret = (vkQueuePresentKHR(_graphicsQueue, &presentInfo));
+		if (ret != VK_SUCCESS) {
+			int jj = 0;
+		}
 
 	}
 	//increase the number of frames drawn
@@ -439,7 +445,9 @@ void VulkanEngine::forward_pass(VkClearValue clearValue, VkCommandBuffer cmd)
 
 	{
 		TracyVkZone(_graphicsQueueContext, get_current_frame()._mainCommandBuffer, "Imgui Draw");
+#ifdef ENABLE_IMGUI
 		ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), cmd);
+#endif
 	}
 
 	//finalize the render pass
@@ -579,7 +587,9 @@ void VulkanEngine::run()
 		while (SDL_PollEvent(&e) != 0)
 		{
 
+#ifdef ENABLE_IMGUI
 			ImGui_ImplSDL2_ProcessEvent(&e);
+#endif
 			_camera.process_input_event(&e);
 
 
@@ -613,6 +623,11 @@ void VulkanEngine::run()
 			}
 		}
 		}
+#ifdef ENABLE_IMGUI
+		if (1)
+#else
+		if (0)
+#endif
 		{
 			ZoneScopedNC("Imgui Logic", tracy::Color::Grey);
 
@@ -2166,5 +2181,7 @@ glm::mat4 DirectionalLight::get_view()
 	glm::mat4 view = glm::lookAt(camPos, camPos + camFwd, glm::vec3(1, 0, 0));
 	return view;
 }
+
+
 
 
