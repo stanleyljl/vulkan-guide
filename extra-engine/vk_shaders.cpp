@@ -7,9 +7,13 @@
 #include <assert.h>
 #include <spirv_reflect.h>
 
-#include <SDL.h>
 #include <iostream>
 #include <sstream>
+
+#ifndef _WIN32
+#include <game-activity/native_app_glue/android_native_app_glue.h>
+extern android_app* g_AppCtx;
+#endif
 
 bool vkutil::load_shader_module(VkDevice device,const char* filePath, ShaderModule* outShaderModule)
 {
@@ -37,15 +41,16 @@ bool vkutil::load_shader_module(VkDevice device,const char* filePath, ShaderModu
 	//now that the file is loaded into the buffer, we can close it
 	file.close();
 #else
-	SDL_RWops* ops = SDL_RWFromFile(filePath, "rb");
-	if (!ops) {
-		return false;
-	}
-	size_t fileSize = (size_t)ops->size(ops);
+	assert(g_AppCtx);
+    AAsset* file = AAssetManager_open(g_AppCtx->activity->assetManager, filePath, AASSET_MODE_BUFFER);
+    if (!file) {
+        return false;
+    }
+
+	size_t fileSize = AAsset_getLength(file);
 	std::vector<uint32_t> buffer(fileSize / sizeof(uint32_t));
-	
-	ops->read(ops, (char*)buffer.data(), fileSize, 1);
-	ops->close(ops);
+	AAsset_read(file , (char*)buffer.data(), fileSize);
+	AAsset_close(file);
 #endif
 
 	//create a new shader module, using the buffer we loaded
@@ -437,5 +442,6 @@ ShaderModule* ShaderCache::get_shader(const std::string& path)
 	}
 	return &module_cache[path];
 }
+
 
 

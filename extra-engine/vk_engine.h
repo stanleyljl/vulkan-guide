@@ -4,7 +4,10 @@
 #pragma once
 
 #include <deque>
+#include <frustum_cull.h>
 #include <functional>
+#include <glm/glm.hpp>
+#include <glm/gtx/transform.hpp>
 #include <material_system.h>
 #include <memory>
 #include <player_camera.h>
@@ -15,14 +18,6 @@
 #include <vk_scene.h>
 #include <vk_shaders.h>
 #include <vk_types.h>
-
-
-
-#include <glm/glm.hpp>
-#include <glm/gtx/transform.hpp>
-
-#include <SDL_events.h>
-#include <frustum_cull.h>
 
 namespace vkutil { struct Material; }
 
@@ -223,7 +218,9 @@ public:
 
 	VkExtent2D _windowExtent{ 2178 , 1008 };
 
+#ifdef _WIN32
 	struct SDL_Window* _window{ nullptr };
+#endif
 
 	VkInstance _instance;
 	VkPhysicalDevice _chosenGPU;
@@ -313,6 +310,8 @@ public:
 	RenderScene _renderScene;
 
 	//EngineConfig _config;
+
+	bool is_ready() const { return _isInitialized; }
 
 	void ready_mesh_draw(VkCommandBuffer cmd);
 	

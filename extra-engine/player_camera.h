@@ -3,10 +3,8 @@
 
 #pragma once
 
-#include <vk_types.h>
-
-#include <SDL_events.h>
 #include <glm/glm.hpp>
+#include <vk_types.h>
 
 
 struct PlayerCamera {
@@ -20,7 +18,6 @@ struct PlayerCamera {
 	bool bSprint = false;
 	bool bLocked;
 
-	void process_input_event(SDL_Event* ev);
 	void update_camera(float deltaSeconds);
 
 

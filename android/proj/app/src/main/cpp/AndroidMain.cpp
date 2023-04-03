@@ -12,18 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include <android/log.h>
-#include "VulkanMain.hpp"
+#include <game-activity/native_app_glue/android_native_app_glue.h>
+#include <vk_engine.h>
+
+android_app* g_AppCtx = nullptr;
+VulkanEngine* g_engine = nullptr;
 
 // Process the next main command.
 void handle_cmd(android_app* app, int32_t cmd) {
   switch (cmd) {
     case APP_CMD_INIT_WINDOW:
       // The window is being shown, get it ready.
-      InitVulkan(app);
+      if (g_engine) {
+        g_engine->init();
+      }
       break;
     case APP_CMD_TERM_WINDOW:
       // The window is being hidden or closed, clean it up.
-      DeleteVulkan();
+      if (g_engine) {
+        g_engine->cleanup();
+      }
       break;
     default:
       __android_log_print(ANDROID_LOG_INFO, "Vulkan Tutorials",
@@ -32,6 +40,10 @@ void handle_cmd(android_app* app, int32_t cmd) {
 }
 
 void android_main(struct android_app* app) {
+
+  g_AppCtx = app;
+  VulkanEngine engine;
+  g_engine = &engine;
 
   // Set the callback to process system events
   app->onAppCmd = handle_cmd;
@@ -42,14 +54,14 @@ void android_main(struct android_app* app) {
 
   // Main loop
   do {
-    if (ALooper_pollAll(IsVulkanReady() ? 1 : 0, nullptr,
+    if (ALooper_pollAll(g_engine->is_ready() ? 1 : 0, nullptr,
                         &events, (void**)&source) >= 0) {
       if (source != NULL) source->process(app, source);
     }
 
     // render if vulkan is ready
-    if (IsVulkanReady()) {
-      VulkanDrawFrame();
+    if (g_engine->is_ready()) {
+      g_engine->run();
     }
   } while (app->destroyRequested == 0);
 }

@@ -1,9 +1,12 @@
-#ifndef _WIN32
-#include <SDL_rwops.h>
-#endif
 #include <asset_loader.h>
 #include <fstream>
 #include <iostream>
+
+#ifndef _WIN32
+#include <game-activity/native_app_glue/android_native_app_glue.h>
+extern android_app* g_AppCtx;
+#endif
+
 using namespace assets;
 bool assets::save_binaryfile(const  char* path, const AssetFile& file)
 {
@@ -69,24 +72,25 @@ bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
 #else
 bool assets::load_binaryfile(const  char* path, AssetFile& outputFile)
 {
-	SDL_RWops* infile = SDL_RWFromFile(path, "rb");
+    AAsset* infile = AAssetManager_open(g_AppCtx->activity->assetManager, path, AASSET_MODE_BUFFER);
 	if (!infile) return false;
 
-	infile->read(infile, outputFile.type, 4, 1);
-    infile->read(infile, (char*)&outputFile.version, sizeof(uint32_t), 1);
+	AAsset_read(infile, outputFile.type, 4);
+	AAsset_read(infile, (char*)&outputFile.version, sizeof(uint32_t));
 
     uint32_t jsonlen = 0;
-    infile->read(infile, (char*)&jsonlen, sizeof(uint32_t), 1);
+	AAsset_read(infile, (char*)&jsonlen, sizeof(uint32_t));
 
     uint32_t bloblen = 0;
-    infile->read(infile, (char*)&bloblen, sizeof(uint32_t), 1);
+	AAsset_read(infile, (char*)&bloblen, sizeof(uint32_t));
 
     outputFile.json.resize(jsonlen);
 
-    infile->read(infile, &outputFile.json[0], jsonlen, 1);
+	AAsset_read(infile, &outputFile.json[0], jsonlen);
 
     outputFile.binaryBlob.resize(bloblen);
-    infile->read(infile, outputFile.binaryBlob.data(), bloblen, 1);
+	AAsset_read(infile, outputFile.binaryBlob.data(), bloblen);
+	AAsset_close(infile);
 
     return true;
 }

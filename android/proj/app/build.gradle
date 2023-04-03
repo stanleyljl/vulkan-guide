@@ -47,6 +47,12 @@ android {
     }
     buildTypes.release.minifyEnabled = false
     buildFeatures.prefab  = true
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['../../../assets']
+        }
+    }
 }
 
 dependencies {

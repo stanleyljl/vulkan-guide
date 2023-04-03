@@ -23,6 +23,7 @@
 
         <activity android:name=".MainActivity"
                 android:configChanges="orientation|keyboardHidden"
+                android:screenOrientation="landscape"
                 android:exported="true">
             <!-- Tell GameActivity the name of our .so file.
                  This will be optional after the release 1.1.0 -->

@@ -1,8 +1,10 @@
 ﻿
 #include "vk_engine.h"
 
+#ifdef _WIN32
 #include <SDL.h>
 #include <SDL_vulkan.h>
+#endif
 
 #include <vk_descriptors.h>
 #include <vk_initializers.h>
@@ -35,7 +37,10 @@
 #include "cvars.h"
 #include "logger.h"
 
-
+#ifndef _WIN32
+#include <game-activity/native_app_glue/android_native_app_glue.h>
+extern android_app* g_AppCtx;
+#endif
 AutoCVar_Int CVAR_OcclusionCullGPU("culling.enableOcclusionGPU", "Perform occlusion culling in gpu", 1, CVarFlags::EditCheckbox);
 
 
@@ -73,22 +78,19 @@ void VulkanEngine::init()
 
 	LOG_INFO("Engine Init");
 
+#ifdef _WIN32
 	// We initialize SDL and create a window with it. 
 	SDL_Init(SDL_INIT_VIDEO);
-	LOG_SUCCESS("SDL inited");
 	uint32_t window_flags = (SDL_WINDOW_VULKAN);
-#ifndef _WIN32
-	window_flags |= SDL_WINDOW_FULLSCREEN;
-#endif
-
 	_window = SDL_CreateWindow(
 		"",
-		0,//SDL_WINDOWPOS_UNDEFINED,
-		0,//SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
 		_windowExtent.width,
 		_windowExtent.height,
 		window_flags
 	);
+#endif
 
 	//_renderables.reserve(10000);
 	
@@ -168,8 +170,9 @@ void VulkanEngine::cleanup()
 
 		vkDestroyDevice(_device, nullptr);
 		vkDestroyInstance(_instance, nullptr);
-
+#ifdef _WIN32
 		SDL_DestroyWindow(_window);
+#endif
 	}
 }
 
@@ -543,6 +546,7 @@ void VulkanEngine::copy_render_to_swapchain(uint32_t swapchainImageIndex, VkComm
 	vkCmdEndRenderPass(cmd);
 }
 
+#ifdef _WIN32
 void VulkanEngine::run()
 {
 
@@ -568,40 +572,15 @@ void VulkanEngine::run()
 		SDL_Event e;
 		{
 			ZoneScopedNC("Event Loop", tracy::Color::White);
-		while (SDL_PollEvent(&e) != 0)
-		{
-
-			_camera.process_input_event(&e);
-
-			//close the window when user alt-f4s or clicks the X button			
-			if (e.type == SDL_QUIT)
+			while (SDL_PollEvent(&e) != 0)
 			{
-				bQuit = true;
-			}
-			else if (e.type == SDL_KEYDOWN)
-			{
-				if (e.key.keysym.sym == SDLK_SPACE)
+
+				//close the window when user alt-f4s or clicks the X button			
+				if (e.type == SDL_QUIT)
 				{
-					_selectedShader += 1;
-					if (_selectedShader > 1)
-					{
-						_selectedShader = 0;
-					}
-				}
-				if (e.key.keysym.sym == SDLK_TAB)
-				{
-					if (CVAR_CamLock.Get())
-					{
-						LOG_INFO("Mouselook disabled");
-						CVAR_CamLock.Set(false);
-					}
-					else {
-						LOG_INFO("Mouselook enabled");
-						CVAR_CamLock.Set(true);
-					}
+					bQuit = true;
 				}
 			}
-		}
 		}
 
 		{
@@ -627,6 +606,27 @@ void VulkanEngine::run()
 		draw();
 	}
 }
+#else
+void VulkanEngine::run()
+{
+    int N_changes = 1000;
+    for (int i = 0; i < N_changes; i++)
+    {
+        int rng = rand() % _renderScene.renderables.size();
+
+        Handle<RenderObject> h;
+        h.handle = rng;
+        _renderScene.update_object(h);
+    }
+    _camera.bLocked = CVAR_CamLock.Get();
+
+    _camera.update_camera(stats.frametime);
+
+    _mainLight.lightPosition = _camera.position;
+	
+	draw();
+}
+#endif
 
 FrameData& VulkanEngine::get_current_frame()
 {
@@ -661,12 +661,23 @@ void VulkanEngine::init_vulkan()
 	//grab the instance 
 	_instance = vkb_inst.instance;
 
+#ifdef _WIN32
 	SDL_Vulkan_CreateSurface(_window, _instance, &_surface);
+#else
+    VkAndroidSurfaceCreateInfoKHR createInfo{
+      .sType = VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR,
+      .pNext = nullptr,
+      .flags = 0,
+      .window = g_AppCtx->window
+	};
 
-	LOG_SUCCESS("SDL Surface initialized");
+    VK_CHECK(vkCreateAndroidSurfaceKHR(_instance, &createInfo, nullptr, &_surface));
+#endif
+
+	LOG_SUCCESS("Surface initialized");
 
 	//use vkbootstrap to select a gpu. 
-	//We want a gpu that can write to the SDL surface and supports vulkan 1.2
+	//We want a gpu that can write to the surface and supports vulkan 1.2
 	vkb::PhysicalDeviceSelector selector{ vkb_inst };
 	VkPhysicalDeviceFeatures feats{};
 
