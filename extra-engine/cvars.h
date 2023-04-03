@@ -44,7 +44,6 @@ public:
 	
 	virtual CVarParameter* CreateStringCVar(const char* name, const char* description, const char* defaultValue, const char* currentValue) = 0;
 	
-	virtual void DrawImguiEditor() = 0;
 };
 
 template<typename T>

@@ -383,8 +383,6 @@ public:
 	bool load_compute_shader(const char* shaderPath, VkPipeline& pipeline, VkPipelineLayout& layout);
 private:
 	EngineStats stats;
-	void process_input_event(SDL_Event* ev);
-
 	void init_vulkan();
 
 	void init_swapchain();
@@ -406,8 +404,6 @@ private:
 	void init_scene();
 
 	void init_descriptors();
-
-	void init_imgui();	
 
 	void load_meshes();
 

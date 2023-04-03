@@ -2,7 +2,6 @@
 #include "fmt/color.h"
 #include "fmt/core.h"
 #include "fmt/os.h"
-#include <SDL_log.h>
 #include <chrono>
 #include <fmt/chrono.h>
 #include <string_view>

@@ -1,15 +1,14 @@
-﻿#include <vk_textures.h>
-#include <iostream>
+﻿#include <iostream>
+#include <vk_textures.h>
 
 #include <vk_initializers.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-#include <SDL_filesystem.h>
-#include "texture_asset.h"
-#include "asset_loader.h"
 #include "Tracy.hpp"
+#include "asset_loader.h"
+#include "texture_asset.h"
 
 
 bool vkutil::load_image_from_file(VulkanEngine& engine, const char* file, AllocatedImage & outImage)
@@ -280,4 +279,5 @@ AllocatedImage vkutil::upload_image_mipmapped(int texWidth, int texHeight, VkFor
 
 	return newImage;
 }
+
 

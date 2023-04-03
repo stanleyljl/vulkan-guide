@@ -21,9 +21,6 @@
 #define VMA_IMPLEMENTATION
 #include "vk_mem_alloc.h"
 
-#include "imgui.h"
-#include "imgui_impl_sdl.h"
-#include "imgui_impl_vulkan.h"
 #include "material_asset.h"
 #include "prefab_asset.h"
 
@@ -38,9 +35,6 @@
 #include "cvars.h"
 #include "logger.h"
 
-#ifdef _WIN32
-#define ENABLE_IMGUI 1
-#endif
 
 AutoCVar_Int CVAR_OcclusionCullGPU("culling.enableOcclusionGPU", "Perform occlusion culling in gpu", 1, CVarFlags::EditCheckbox);
 
@@ -135,10 +129,6 @@ void VulkanEngine::init()
 	load_meshes();
 
 	init_scene();
-
-#ifdef ENABLE_IMGUI
-	init_imgui();
-#endif
 	
 	_renderScene.build_batches();
 
@@ -187,9 +177,6 @@ void VulkanEngine::draw()
 {
 	ZoneScopedN("Engine Draw");
 
-#ifdef ENABLE_IMGUI
-	ImGui::Render();
-#endif
 	{
 		ZoneScopedN("Fence Wait");
 		//wait until the gpu has finished rendering the last frame. Timeout of 1 second
@@ -447,14 +434,6 @@ void VulkanEngine::forward_pass(VkClearValue clearValue, VkCommandBuffer cmd)
 		draw_objects_forward(cmd, _renderScene._transparentForwardPass);
 	}
 
-
-	{
-		TracyVkZone(_graphicsQueueContext, get_current_frame()._mainCommandBuffer, "Imgui Draw");
-#ifdef ENABLE_IMGUI
-		ImGui_ImplVulkan_RenderDrawData(ImGui::GetDrawData(), cmd);
-#endif
-	}
-
 	//finalize the render pass
 	vkCmdEndRenderPass(cmd);
 }
@@ -592,11 +571,7 @@ void VulkanEngine::run()
 		while (SDL_PollEvent(&e) != 0)
 		{
 
-#ifdef ENABLE_IMGUI
-			ImGui_ImplSDL2_ProcessEvent(&e);
-#endif
 			_camera.process_input_event(&e);
-
 
 			//close the window when user alt-f4s or clicks the X button			
 			if (e.type == SDL_QUIT)
@@ -627,67 +602,6 @@ void VulkanEngine::run()
 				}
 			}
 		}
-		}
-#ifdef ENABLE_IMGUI
-		if (1)
-#else
-		if (0)
-#endif
-		{
-			ZoneScopedNC("Imgui Logic", tracy::Color::Grey);
-
-			//imgui new frame 
-			ImGui_ImplVulkan_NewFrame();
-			ImGui_ImplSDL2_NewFrame(_window);
-
-			ImGui::NewFrame();
-
-
-			
-			if (ImGui::BeginMainMenuBar())
-			{
-				
-				if (ImGui::BeginMenu("Debug"))
-				{
-					if (ImGui::BeginMenu("CVAR"))
-					{
-						CVarSystem::Get()->DrawImguiEditor();
-						ImGui::EndMenu();
-					}
-					ImGui::EndMenu();
-				}
-				ImGui::EndMainMenuBar();
-			}
-
-
-			ImGui::Begin("engine");
-
-			ImGui::Text("Frametimes: %f", stats.frametime);
-			ImGui::Text("Objects: %d", stats.objects);
-			//ImGui::Text("Drawcalls: %d", stats.drawcalls);
-			ImGui::Text("Batches: %d", stats.draws);
-			//ImGui::Text("Triangles: %d", stats.triangles);		
-			
-			CVAR_OutputIndirectToFile.Set(false);
-			if (ImGui::Button("Output Indirect"))
-			{
-				CVAR_OutputIndirectToFile.Set(true);
-			}
-		
-
-			ImGui::Separator();
-
-			for (auto& [k, v] : _profiler->timing)
-			{
-				ImGui::Text("TIME %s %f ms",k.c_str(), v);
-			}
-			for (auto& [k, v] : _profiler->stats)
-			{
-				ImGui::Text("STAT %s %d", k.c_str(), v);
-			}
-
-
-			ImGui::End();
 		}
 
 		{
@@ -723,49 +637,6 @@ FrameData& VulkanEngine::get_current_frame()
 FrameData& VulkanEngine::get_last_frame()
 {
 	return _frames[(_frameNumber - 1) % 2];
-}
-
-
-void VulkanEngine::process_input_event(SDL_Event* ev)
-{
-	if (ev->type == SDL_KEYDOWN)
-	{
-		switch (ev->key.keysym.sym)
-		{		
-		
-		}
-	}
-	else if (ev->type == SDL_KEYUP)
-	{
-		switch (ev->key.keysym.sym)
-		{
-		case SDLK_UP:
-		case SDLK_w:
-			_camera.inputAxis.x -= 1.f;
-			break;
-		case SDLK_DOWN:
-		case SDLK_s:
-			_camera.inputAxis.x += 1.f;
-			break;
-		case SDLK_LEFT:
-		case SDLK_a:
-			_camera.inputAxis.y += 1.f;
-			break;
-		case SDLK_RIGHT:
-		case SDLK_d:
-			_camera.inputAxis.y -= 1.f;
-			break;
-		}
-	}
-	else if (ev->type == SDL_MOUSEMOTION) {
-		if (!CVAR_CamLock.Get())
-		{
-			_camera.pitch -= ev->motion.yrel * 0.003f;
-			_camera.yaw -= ev->motion.xrel * 0.003f;
-		}
-	}
-
-	_camera.inputAxis = glm::clamp(_camera.inputAxis, { -1.0,-1.0,-1.0 }, { 1.0,1.0,1.0 });
 }
 
 void VulkanEngine::init_vulkan()
@@ -2102,74 +1973,6 @@ void VulkanEngine::init_descriptors()
 		_frames[i].debugOutputBuffer = create_buffer(200000000, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VMA_MEMORY_USAGE_GPU_TO_CPU);
 	}
 }
-
-void VulkanEngine::init_imgui()
-{
-	//1: create descriptor pool for IMGUI
-	// the size of the pool is very oversize, but its copied from imgui demo itself.
-	VkDescriptorPoolSize pool_sizes[] =
-	{
-		{ VK_DESCRIPTOR_TYPE_SAMPLER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE, 1000 },
-		{ VK_DESCRIPTOR_TYPE_STORAGE_IMAGE, 1000 },
-		{ VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, 1000 },
-		{ VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC, 1000 },
-		{ VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC, 1000 },
-		{ VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT, 1000 }
-	};
-
-	VkDescriptorPoolCreateInfo pool_info = {};
-	pool_info.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
-	pool_info.flags = VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT;
-	pool_info.maxSets = 1000;
-	pool_info.poolSizeCount = 11;// std::size(pool_sizes);
-	pool_info.pPoolSizes = pool_sizes;
-
-	VkDescriptorPool imguiPool;
-	VK_CHECK(vkCreateDescriptorPool(_device, &pool_info, nullptr, &imguiPool));
-
-
-	// 2: initialize imgui library
-
-	//this initializes the core structures of imgui
-	ImGui::CreateContext();
-	ImGui::GetIO().IniFilename = NULL;
-
-	//this initializes imgui for SDL
-	ImGui_ImplSDL2_InitForVulkan(_window);
-
-	//this initializes imgui for Vulkan
-	ImGui_ImplVulkan_InitInfo init_info = {};
-	init_info.Instance = _instance;
-	init_info.PhysicalDevice = _chosenGPU;
-	init_info.Device = _device;
-	init_info.Queue = _graphicsQueue;
-	init_info.DescriptorPool = imguiPool;
-	init_info.MinImageCount = 3;
-	init_info.ImageCount = 3;
-
-	ImGui_ImplVulkan_Init(&init_info, _renderPass);
-
-	//execute a gpu command to upload imgui font textures
-	immediate_submit([&](VkCommandBuffer cmd) {
-		ImGui_ImplVulkan_CreateFontsTexture(cmd);
-		});
-
-	//clear font textures from cpu data
-	ImGui_ImplVulkan_DestroyFontUploadObjects();
-
-	//add the destroy the imgui created structures
-	_mainDeletionQueue.push_function([=]() {
-
-		vkDestroyDescriptorPool(_device, imguiPool, nullptr);
-		ImGui_ImplVulkan_Shutdown();
-		});
-}
-
 
 glm::mat4 DirectionalLight::get_projection()
 {
