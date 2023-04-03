@@ -3,17 +3,17 @@
 #include <SDL.h>
 #include <SDL_vulkan.h>
 
-#include <vk_types.h>
-#include <vk_initializers.h>
 #include <vk_descriptors.h>
+#include <vk_initializers.h>
+#include <vk_types.h>
 
-#include "vk_textures.h"
 #include "vk_shaders.h"
+#include "vk_textures.h"
 
 #include "Tracy.hpp"
 #include "TracyVulkan.hpp"
-#include "vk_profiler.h"
 #include "cvars.h"
+#include "vk_profiler.h"
 
 AutoCVar_Int CVAR_FreezeCull("culling.freeze", "Locks culling", 0, CVarFlags::EditCheckbox);
 
@@ -398,7 +398,7 @@ void VulkanEngine::draw_objects_forward(VkCommandBuffer cmd, RenderScene::MeshPa
 	//camera view
 	glm::mat4 view = _camera.get_view_matrix();
 	//camera projection
-	glm::mat4 projection = _camera.get_projection_matrix();
+	glm::mat4 projection = _camera.get_projection_matrix(static_cast<float>(_windowExtent.width), static_cast<float>(_windowExtent.height));
 
 
 	GPUCameraData camData;

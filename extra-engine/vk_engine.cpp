@@ -38,7 +38,9 @@
 #include "cvars.h"
 #include "logger.h"
 
-
+#ifdef _WIN32
+#define ENABLE_IMGUI 1
+#endif
 
 AutoCVar_Int CVAR_OcclusionCullGPU("culling.enableOcclusionGPU", "Perform occlusion culling in gpu", 1, CVarFlags::EditCheckbox);
 
@@ -80,12 +82,15 @@ void VulkanEngine::init()
 	// We initialize SDL and create a window with it. 
 	SDL_Init(SDL_INIT_VIDEO);
 	LOG_SUCCESS("SDL inited");
-	SDL_WindowFlags window_flags = (SDL_WINDOW_VULKAN);
+	uint32_t window_flags = (SDL_WINDOW_VULKAN);
+#ifndef _WIN32
+	window_flags |= SDL_WINDOW_FULLSCREEN;
+#endif
 
 	_window = SDL_CreateWindow(
 		"",
-		SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED,
+		0,//SDL_WINDOWPOS_UNDEFINED,
+		0,//SDL_WINDOWPOS_UNDEFINED,
 		_windowExtent.width,
 		_windowExtent.height,
 		window_flags
@@ -260,7 +265,7 @@ void VulkanEngine::draw()
 	//make a clear-color from frame number. This will flash with a 120 frame period.
 	VkClearValue clearValue;
 	float flash = abs(sin(_frameNumber / 120.f));
-	clearValue.color = { { 0.1f, 0.1f, 0.1f, 1.0f } };
+	clearValue.color = { { 0.1f, 0.1f, 0.9f, 1.0f } };
 
 	_profiler->grab_queries(cmd);
 
@@ -290,7 +295,7 @@ void VulkanEngine::draw()
 
 
 		CullParams forwardCull;
-		forwardCull.projmat = _camera.get_projection_matrix(true);
+		forwardCull.projmat = _camera.get_projection_matrix(static_cast<float>(_windowExtent.width), static_cast<float>(_windowExtent.height), true);
 		forwardCull.viewmat = _camera.get_view_matrix();
 		forwardCull.frustrumCull = true;
 		forwardCull.occlusionCull = true;
@@ -2181,6 +2186,7 @@ glm::mat4 DirectionalLight::get_view()
 	glm::mat4 view = glm::lookAt(camPos, camPos + camFwd, glm::vec3(1, 0, 0));
 	return view;
 }
+
 
 
 

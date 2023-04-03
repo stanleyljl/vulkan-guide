@@ -58,6 +58,9 @@ LOCAL_SRC_FILES += ../../../../third_party/spv_reflect/spirv_reflect.c
 LOCAL_SRC_FILES += ../../../../third_party/tinyobjloader/tiny_obj_loader.cc
 LOCAL_SRC_FILES += ../../../../third_party/vkbootstrap/VkBootstrap.cpp
 
+LOCAL_CFLAGS := -DGLM_FORCE_DEPTH_ZERO_TO_ONE
+LOCAL_CFLAGS += -DGLM_FORCE_LEFT_HANDED
+
 LOCAL_SHARED_LIBRARIES := SDL2
 
 LOCAL_LDLIBS := -llog -landroid

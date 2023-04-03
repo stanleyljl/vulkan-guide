@@ -3,18 +3,18 @@
 
 #pragma once
 
-#include <vk_types.h>
-#include <vector>
-#include <functional>
 #include <deque>
+#include <functional>
+#include <material_system.h>
 #include <memory>
-#include <vk_mesh.h>
-#include <vk_scene.h>
-#include <vk_shaders.h>
-#include <vk_pushbuffer.h>
 #include <player_camera.h>
 #include <unordered_map>
-#include <material_system.h>
+#include <vector>
+#include <vk_mesh.h>
+#include <vk_pushbuffer.h>
+#include <vk_scene.h>
+#include <vk_shaders.h>
+#include <vk_types.h>
 
 
 
@@ -118,19 +118,19 @@ struct UploadContext {
 };
 
 struct GPUCameraData{
-	glm::mat4 view;
-	glm::mat4 proj;
-	glm::mat4 viewproj;
+	glm::mat4 view{};
+	glm::mat4 proj{};
+	glm::mat4 viewproj{};
 };
 
 
 struct GPUSceneData {
-	glm::vec4 fogColor; // w is for exponent
-	glm::vec4 fogDistances; //x for min, y for max, zw unused.
-	glm::vec4 ambientColor;
-	glm::vec4 sunlightDirection; //w for sun power
-	glm::vec4 sunlightColor;
-	glm::mat4 sunlightShadowMatrix;
+	glm::vec4 fogColor{}; // w is for exponent
+	glm::vec4 fogDistances{}; //x for min, y for max, zw unused.
+	glm::vec4 ambientColor{};
+	glm::vec4 sunlightDirection{}; //w for sun power
+	glm::vec4 sunlightColor{};
+	glm::mat4 sunlightShadowMatrix{};
 };
 
 struct GPUObjectData {
@@ -221,7 +221,7 @@ public:
 	int _frameNumber {0};
 	int _selectedShader{ 0 };
 
-	VkExtent2D _windowExtent{ 1700 , 900 };
+	VkExtent2D _windowExtent{ 2178 , 1008 };
 
 	struct SDL_Window* _window{ nullptr };
 
@@ -427,3 +427,4 @@ T* VulkanEngine::map_buffer(AllocatedBuffer<T>& buffer)
 	vmaMapMemory(_allocator, buffer._allocation, &data);
 	return(T*)data;
 }
+

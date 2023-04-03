@@ -1,5 +1,5 @@
-﻿#include <player_camera.h>
-#include "SDL.h"
+﻿#include "SDL.h"
+#include <player_camera.h>
 
 #include <glm/gtx/transform.hpp>
 void PlayerCamera::process_input_event(SDL_Event* ev)
@@ -113,16 +113,16 @@ glm::mat4 PlayerCamera::get_view_matrix()
 	return view;
 }
 
-glm::mat4 PlayerCamera::get_projection_matrix(bool bReverse /*= true*/)
+glm::mat4 PlayerCamera::get_projection_matrix(float width, float height, bool bReverse /*= true*/)
 {
 	if (bReverse)
 	{
-		glm::mat4 pro = glm::perspective(glm::radians(70.f), 1700.f / 900.f, 5000.0f, 0.1f);
+		glm::mat4 pro = glm::perspective(glm::radians(70.f), width / height, 5000.0f, 0.1f);
 		pro[1][1] *= -1;
 		return pro;
 	}
 	else {
-		glm::mat4 pro = glm::perspective(glm::radians(70.f), 1700.f / 900.f, 0.1f, 5000.0f);
+		glm::mat4 pro = glm::perspective(glm::radians(70.f), width / height, 0.1f, 5000.0f);
 		pro[1][1] *= -1;
 		return pro;
 	}

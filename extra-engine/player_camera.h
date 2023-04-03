@@ -25,6 +25,6 @@ struct PlayerCamera {
 
 
 	glm::mat4 get_view_matrix();
-	glm::mat4 get_projection_matrix(bool bReverse = true);
+	glm::mat4 get_projection_matrix(float width, float height, bool bReverse = true);
 	glm::mat4 get_rotation_matrix();
 };
