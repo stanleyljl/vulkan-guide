@@ -304,7 +304,7 @@ void VulkanEngine::draw()
 		shadowCull.projmat = _mainLight.get_projection();
 		shadowCull.viewmat = _mainLight.get_view();
 		shadowCull.frustrumCull = true;
-		shadowCull.occlusionCull = false;
+		shadowCull.occlusionCull = true;
 		shadowCull.drawDist = 9999999;
 		shadowCull.aabb = true;
 

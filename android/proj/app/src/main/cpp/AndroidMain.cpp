@@ -24,6 +24,9 @@ void handle_cmd(android_app* app, int32_t cmd) {
     case APP_CMD_INIT_WINDOW:
       // The window is being shown, get it ready.
       if (g_engine) {
+        uint32_t width = ANativeWindow_getWidth(app->window);
+        uint32_t height = ANativeWindow_getHeight(app->window);
+        g_engine->_windowExtent = {width, height};
         g_engine->init();
       }
       break;
