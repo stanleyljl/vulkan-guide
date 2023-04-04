@@ -275,9 +275,9 @@ void VulkanEngine::draw()
 			ready_mesh_draw(cmd);
 
 			ready_cull_data(_renderScene._forwardPass, cmd);
-#ifdef STANLEY_TODO
+
 			ready_cull_data(_renderScene._transparentForwardPass, cmd);
-#endif
+
 			ready_cull_data(_renderScene._shadowPass, cmd);
 
 			vkCmdPipelineBarrier(cmd, VK_PIPELINE_STAGE_TRANSFER_BIT, VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, 0, 0, nullptr, cullReadyBarriers.size(), cullReadyBarriers.data(), 0, nullptr);
