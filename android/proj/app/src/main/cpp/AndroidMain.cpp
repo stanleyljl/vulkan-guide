@@ -68,3 +68,71 @@ void android_main(struct android_app* app) {
     }
   } while (app->destroyRequested == 0);
 }
+
+extern "C" {
+JNIEXPORT void JNICALL
+Java_com_android_example_MainActivity_nativeKeyDown(JNIEnv *env, jobject thiz, jint code) {
+  if (!g_engine) {
+    return;
+  }
+
+  auto &camera = g_engine->_camera;
+  switch (code) {
+    case 0:
+      camera.inputAxis.z -= 1.f;
+          break;
+    case 1:
+      camera.inputAxis.x += 1.f;
+          break;
+    case 2:
+      camera.inputAxis.z += 1.f;
+          break;
+    case 3:
+      camera.inputAxis.y -= 1.f;
+          break;
+    case 4:
+      camera.inputAxis.x -= 1.f;
+          break;
+    case 5:
+      camera.inputAxis.y += 1.f;
+          break;
+    default:
+      break;
+  }
+
+  camera.inputAxis = glm::clamp(camera.inputAxis, {-1.0, -1.0, -1.0}, {1.0, 1.0, 1.0});
+}
+
+JNIEXPORT void JNICALL
+Java_com_android_example_MainActivity_nativeKeyUp(JNIEnv *env, jobject thiz, jint code) {
+  if (!g_engine) {
+    return;
+  }
+
+  auto &camera = g_engine->_camera;
+  switch (code) {
+    case 0:
+      camera.inputAxis.z += 1.f;
+          break;
+    case 1:
+      camera.inputAxis.x -= 1.f;
+          break;
+    case 2:
+      camera.inputAxis.z -= 1.f;
+          break;
+    case 3:
+      camera.inputAxis.y += 1.f;
+          break;
+    case 4:
+      camera.inputAxis.x += 1.f;
+          break;
+    case 5:
+      camera.inputAxis.y -= 1.f;
+          break;
+    default:
+      break;
+  }
+
+  camera.inputAxis = glm::clamp(camera.inputAxis, {-1.0, -1.0, -1.0}, {1.0, 1.0, 1.0});
+}
+}

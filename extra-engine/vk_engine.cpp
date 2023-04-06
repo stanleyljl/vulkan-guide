@@ -546,7 +546,6 @@ void VulkanEngine::copy_render_to_swapchain(uint32_t swapchainImageIndex, VkComm
 	vkCmdEndRenderPass(cmd);
 }
 
-#ifdef _WIN32
 void VulkanEngine::run()
 {
 
@@ -555,12 +554,12 @@ void VulkanEngine::run()
 	bool bQuit = false;
 
 	// Using time point and system_clock 
-	std::chrono::time_point<std::chrono::system_clock> start, end;
+	static std::chrono::time_point<std::chrono::system_clock> start, end;
 	
-	start = std::chrono::system_clock::now();
-	end = std::chrono::system_clock::now();
 	//main loop
+#ifdef _WIN32
 	while (!bQuit)
+#endif
 	{
 		ZoneScopedN("Main Loop");
 		end = std::chrono::system_clock::now();
@@ -569,6 +568,7 @@ void VulkanEngine::run()
 
 		start = std::chrono::system_clock::now();
 		//Handle events on queue
+#ifdef _WIN32
 		SDL_Event e;
 		{
 			ZoneScopedNC("Event Loop", tracy::Color::White);
@@ -582,7 +582,7 @@ void VulkanEngine::run()
 				}
 			}
 		}
-
+#endif
 		{
 			ZoneScopedNC("Flag Objects", tracy::Color::Blue);
 			//test flagging some objects for changes
@@ -606,27 +606,6 @@ void VulkanEngine::run()
 		draw();
 	}
 }
-#else
-void VulkanEngine::run()
-{
-    int N_changes = 1000;
-    for (int i = 0; i < N_changes; i++)
-    {
-        int rng = rand() % _renderScene.renderables.size();
-
-        Handle<RenderObject> h;
-        h.handle = rng;
-        _renderScene.update_object(h);
-    }
-    _camera.bLocked = CVAR_CamLock.Get();
-
-    _camera.update_camera(stats.frametime);
-
-    _mainLight.lightPosition = _camera.position;
-	
-	draw();
-}
-#endif
 
 FrameData& VulkanEngine::get_current_frame()
 {
@@ -691,7 +670,6 @@ void VulkanEngine::init_vulkan()
 		.set_minimum_version(1, 1)
 		.set_surface(_surface)
 		.add_required_extension(VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME)
-		
 		.select()
 		.value();
 
@@ -1501,7 +1479,7 @@ void VulkanEngine::init_scene()
 
 	}
 
-	int dimHelmets = 2;
+	int dimHelmets = 30;
 	for (int x = -dimHelmets; x <= dimHelmets; x++) {
 		for (int y = -dimHelmets; y <= dimHelmets; y++) {
 	
@@ -1993,6 +1971,7 @@ glm::mat4 DirectionalLight::get_view()
 	glm::mat4 view = glm::lookAt(camPos, camPos + camFwd, glm::vec3(1, 0, 0));
 	return view;
 }
+
 
 
 
