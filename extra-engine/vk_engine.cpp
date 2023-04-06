@@ -327,9 +327,9 @@ void VulkanEngine::draw()
 
 
 		shadow_pass(cmd);
-		
+
 		forward_pass(clearValue, cmd);
-		
+
 
 		reduce_depth(cmd);
 
@@ -1501,7 +1501,7 @@ void VulkanEngine::init_scene()
 
 	}
 
-	int dimHelmets = 100;
+	int dimHelmets = 2;
 	for (int x = -dimHelmets; x <= dimHelmets; x++) {
 		for (int y = -dimHelmets; y <= dimHelmets; y++) {
 	
@@ -1521,11 +1521,11 @@ void VulkanEngine::init_scene()
 	int dimcities = 2;
 	for (int x = -dimcities; x <= dimcities; x++) {
 		for (int y = -dimcities; y <= dimcities; y++) {
-	
+
 			glm::mat4 translation = glm::translate(glm::mat4{ 1.0 }, glm::vec3(x * 300, y, y * 300));
 			glm::mat4 scale = glm::scale(glm::mat4{ 1.0 }, glm::vec3(10));
-	
-			
+
+
 			glm::mat4 cityMatrix = translation;// * glm::scale(glm::mat4{ 1.0f }, glm::vec3(.01f));
 			//load_prefab(asset_path("scifi/TopDownScifi.pfb").c_str(), unrealFixRotation * glm::scale(glm::mat4{ 1.0 }, glm::vec3(.01)));
 			//load_prefab(asset_path("PolyCity/PolyCity.pfb").c_str(), cityMatrix);
@@ -1685,13 +1685,6 @@ bool VulkanEngine::load_prefab(const char* path, glm::mat4 root)
 
 	assets::PrefabInfo* prefab = _prefabCache[path];
 
-	VkSamplerCreateInfo samplerInfo = vkinit::sampler_create_info(VK_FILTER_LINEAR);
-	samplerInfo.mipmapMode = VK_SAMPLER_MIPMAP_MODE_LINEAR;
-
-
-	VkSampler smoothSampler;
-	vkCreateSampler(_device, &samplerInfo, nullptr, &smoothSampler);
-
 
 	std::unordered_map<uint64_t, glm::mat4> node_worldmats;
 
@@ -1790,7 +1783,7 @@ bool VulkanEngine::load_prefab(const char* path, glm::mat4 root)
 				{
 					vkutil::SampledTexture tex;
 					tex.view = _loadedTextures[texture].imageView;
-					tex.sampler = smoothSampler;
+					tex.sampler = _smoothSampler;
 
 					vkutil::MaterialData info;
 					info.parameters = nullptr;

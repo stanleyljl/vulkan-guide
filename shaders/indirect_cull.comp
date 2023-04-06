@@ -13,7 +13,10 @@ struct DrawCullData
 {
 	mat4 view;
 	float P00, P11, znear, zfar; // symmetric projection parameters
-	float frustum[4]; // data for left/right/top/bottom frustum planes
+	float frustum0; // data for left/right/top/bottom frustum planes
+	float frustum1;
+	float frustum2;
+	float frustum3;
 	float lodBase, lodStep; // lod distance i = base * pow(step, i)
 	float pyramidWidth, pyramidHeight; // depth pyramid size in texels
 
@@ -33,7 +36,7 @@ struct DrawCullData
 
 };
 
-layout(push_constant) uniform  constants{   
+layout(set = 0,binding = 6) uniform  constants{   
    DrawCullData cullData;
 };
 
@@ -119,8 +122,8 @@ bool IsVisible(uint objectIndex)
 	bool visible = true;
 
 	// the left/top/right/bottom plane culling utilizes frustum symmetry to cull against two planes at the same time
-	visible = visible && center.z * cullData.frustum[1] - abs(center.x) * cullData.frustum[0] > -radius;
-	visible = visible && center.z * cullData.frustum[3] - abs(center.y) * cullData.frustum[2] > -radius;
+	visible = visible && center.z * cullData.frustum1 - abs(center.x) * cullData.frustum0 > -radius;
+	visible = visible && center.z * cullData.frustum3 - abs(center.y) * cullData.frustum2 > -radius;
 
 	if(cullData.distCull != 0)
 	{// the near/far plane culling uses camera space Z directly

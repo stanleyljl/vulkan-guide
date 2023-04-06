@@ -36,6 +36,9 @@ void VulkanEngine::execute_compute_cull(VkCommandBuffer cmd, RenderScene::MeshPa
 	VkDescriptorBufferInfo dynamicInfo = get_current_frame().dynamicData.source.get_info();
 	dynamicInfo.range = sizeof(GPUCameraData);
 
+	VkDescriptorBufferInfo cullingInfo = pass.cullDataBuffer.get_info();
+	cullingInfo.range = sizeof(DrawCullData);
+
 	VkDescriptorBufferInfo instanceInfo = pass.passObjectsBuffer.get_info();
 
 	VkDescriptorBufferInfo finalInfo = pass.compactedInstanceBuffer.get_info();
@@ -56,6 +59,7 @@ void VulkanEngine::execute_compute_cull(VkCommandBuffer cmd, RenderScene::MeshPa
 		.bind_buffer(3, &finalInfo, VK_DESCRIPTOR_TYPE_STORAGE_BUFFER, VK_SHADER_STAGE_COMPUTE_BIT)
 		.bind_image(4, &depthPyramid, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_COMPUTE_BIT)
 		.bind_buffer(5, &dynamicInfo, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_COMPUTE_BIT)
+		.bind_buffer(6, &cullingInfo, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_COMPUTE_BIT)
 		.build(COMPObjectDataSet);
 
 
@@ -102,9 +106,14 @@ void VulkanEngine::execute_compute_cull(VkCommandBuffer cmd, RenderScene::MeshPa
 		cullData.distanceCheck = true;
 	}
 
+	void* ptr = map_buffer(pass.cullDataBuffer);
+	memcpy(ptr, &cullData, sizeof(DrawCullData));
+	unmap_buffer(pass.cullDataBuffer);
+
+
 	vkCmdBindPipeline(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _cullPipeline);
 
-	vkCmdPushConstants(cmd, _cullLayout, VK_SHADER_STAGE_COMPUTE_BIT, 0, sizeof(DrawCullData), &cullData);
+	// vkCmdPushConstants(cmd, _cullLayout, VK_SHADER_STAGE_COMPUTE_BIT, 0, sizeof(DrawCullData), &cullData);
 
 	vkCmdBindDescriptorSets(cmd, VK_PIPELINE_BIND_POINT_COMPUTE, _cullLayout, 0, 1, &COMPObjectDataSet, 0, nullptr);
 	
@@ -280,6 +289,11 @@ void VulkanEngine::ready_mesh_draw(VkCommandBuffer cmd)
 		if (pass.passObjectsBuffer._size < pass.flat_batches.size() * sizeof(GPUInstance))
 		{
 			reallocate_buffer(pass.passObjectsBuffer, pass.flat_batches.size() * sizeof(GPUInstance), VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_STORAGE_BUFFER_BIT, VMA_MEMORY_USAGE_GPU_ONLY);
+		}
+
+		if (pass.cullDataBuffer._size < sizeof(DrawCullData))
+		{
+			reallocate_buffer(pass.cullDataBuffer, sizeof(DrawCullData), VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VMA_MEMORY_USAGE_CPU_TO_GPU);
 		}
 	}
 
