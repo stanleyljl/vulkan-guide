@@ -240,7 +240,7 @@ void VulkanEngine::draw()
 		ZoneScopedN("Aquire Image");
 		//request image from the swapchain
 
-		VK_CHECK(vkAcquireNextImageKHR(_device, _swapchain, 0, get_current_frame()._presentSemaphore, nullptr, &swapchainImageIndex));
+		VK_CHECK(vkAcquireNextImageKHR(_device, _swapchain, 0, get_current_frame()._presentSemaphore, VK_NULL_HANDLE, &swapchainImageIndex));
 
 	}
 

@@ -279,7 +279,7 @@ bool SystemInfo::is_layer_available (const char* layer_name) const {
 
 void destroy_instance (Instance instance) {
 	if (instance.instance != VK_NULL_HANDLE) {
-		if (instance.debug_messenger != nullptr)
+		if (instance.debug_messenger != VK_NULL_HANDLE)
 			destroy_debug_utils_messenger (instance.instance, instance.debug_messenger, instance.allocation_callbacks);
 		vkDestroyInstance (instance.instance, instance.allocation_callbacks);
 	}
@@ -795,7 +795,7 @@ PhysicalDeviceSelector::PhysicalDeviceSelector (Instance const& instance) {
 
 detail::Expected<PhysicalDevice, detail::Error<PhysicalDeviceError>> PhysicalDeviceSelector::select () const {
 	if (!system_info.headless && !criteria.defer_surface_initialization) {
-		if (system_info.surface == nullptr)
+		if (system_info.surface == VK_NULL_HANDLE)
 			return detail::Error<PhysicalDeviceError>{ PhysicalDeviceError::no_surface_provided };
 	}
 
