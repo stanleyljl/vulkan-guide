@@ -89,8 +89,8 @@ void VulkanEngine::init()
 
 	_window = SDL_CreateWindow(
 		"",
-		0,//SDL_WINDOWPOS_UNDEFINED,
-		0,//SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
 		_windowExtent.width,
 		_windowExtent.height,
 		window_flags
